@@ -1,0 +1,617 @@
+Last login: Wed Jul 10 09:38:31 on ttys000
+C02R47BQGG7J:~ summercamp$ vagrant box list
+ubuntu/trusty64 (virtualbox, 20180604.0.0)
+ubuntu/xenial64 (virtualbox, 20180602.0.0)
+C02R47BQGG7J:~ summercamp$ vagrant init
+`Vagrantfile` already exists in this directory. Remove it before
+running `vagrant init`.
+C02R47BQGG7J:~ summercamp$ vagrant init
+`Vagrantfile` already exists in this directory. Remove it before
+running `vagrant init`.
+C02R47BQGG7J:~ summercamp$ vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Importing base box 'ubuntu/trusty64'...
+==> default: Matching MAC address for NAT networking...
+==> default: Checking if box 'ubuntu/trusty64' is up to date...
+==> default: A newer version of the box 'ubuntu/trusty64' is available! You currently
+==> default: have version '20180604.0.0'. The latest is version '20190429.0.1'. Run
+==> default: `vagrant box update` to update.
+==> default: Setting the name of the VM: summercamp_default_1562776899519_31011
+==> default: Clearing any previously set forwarded ports...
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default: 
+    default: Vagrant insecure key detected. Vagrant will automatically replace
+    default: this with a newly generated keypair for better security.
+    default: 
+    default: Inserting generated public key within guest...
+    default: Removing insecure key from the guest if it's present...
+    default: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default: 
+    default: Guest Additions Version: 4.3.36
+    default: VirtualBox Version: 5.2
+==> default: Mounting shared folders...
+    default: /vagrant => /Users/summercamp
+C02R47BQGG7J:~ summercamp$ vagrant ssh
+Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 3.13.0-149-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+
+ System information disabled due to load higher than 1.0
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+0 packages can be updated.
+0 updates are security updates.
+
+New release '16.04.6 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+vagrant@vagrant-ubuntu-trusty-64:~$ 
+vagrant@vagrant-ubuntu-trusty-64:~$ do-release-upgrade
+Checking for a new Ubuntu release
+Get:1 Upgrade tool signature [819 B]                                           
+Get:2 Upgrade tool [1,260 kB]                                                  
+Fetched 1,261 kB in 0s (0 B/s)                                                 
+authenticate 'xenial.tar.gz' against 'xenial.tar.gz.gpg' 
+extracting 'xenial.tar.gz'
+[screen is terminating]
+vagrant@vagrant-ubuntu-trusty-64:~$ hello
+The program 'hello' can be found in the following packages:
+ * hello
+ * hello-debhelper
+Ask your administrator to install one of them
+vagrant@vagrant-ubuntu-trusty-64:~$ uname
+Linux
+vagrant@vagrant-ubuntu-trusty-64:~$ vagrant box list
+The program 'vagrant' is currently not installed. To run 'vagrant' please ask your administrator to install the package 'vagrant'
+vagrant@vagrant-ubuntu-trusty-64:~$ install vagrant
+install: missing destination file operand after ‘vagrant’
+Try 'install --help' for more information.
+vagrant@vagrant-ubuntu-trusty-64:~$ --help
+--help: command not found
+vagrant@vagrant-ubuntu-trusty-64:~$ install --help
+Usage: install [OPTION]... [-T] SOURCE DEST
+  or:  install [OPTION]... SOURCE... DIRECTORY
+  or:  install [OPTION]... -t DIRECTORY SOURCE...
+  or:  install [OPTION]... -d DIRECTORY...
+
+This install program copies files (often just compiled) into destination
+locations you choose.  If you want to download and install a ready-to-use
+package on a GNU/Linux system, you should instead be using a package manager
+like yum(1) or apt-get(1).
+
+In the first three forms, copy SOURCE to DEST or multiple SOURCE(s) to
+the existing DIRECTORY, while setting permission modes and owner/group.
+In the 4th form, create all components of the given DIRECTORY(ies).
+
+Mandatory arguments to long options are mandatory for short options too.
+      --backup[=CONTROL]  make a backup of each existing destination file
+  -b                  like --backup but does not accept an argument
+  -c                  (ignored)
+  -C, --compare       compare each pair of source and destination files, and
+                        in some cases, do not modify the destination at all
+  -d, --directory     treat all arguments as directory names; create all
+                        components of the specified directories
+  -D                  create all leading components of DEST except the last,
+                        then copy SOURCE to DEST
+  -g, --group=GROUP   set group ownership, instead of process' current group
+  -m, --mode=MODE     set permission mode (as in chmod), instead of rwxr-xr-x
+  -o, --owner=OWNER   set ownership (super-user only)
+  -p, --preserve-timestamps   apply access/modification times of SOURCE files
+                        to corresponding destination files
+  -s, --strip         strip symbol tables
+      --strip-program=PROGRAM  program used to strip binaries
+  -S, --suffix=SUFFIX  override the usual backup suffix
+  -t, --target-directory=DIRECTORY  copy all SOURCE arguments into DIRECTORY
+  -T, --no-target-directory  treat DEST as a normal file
+  -v, --verbose       print the name of each directory as it is created
+      --preserve-context  preserve SELinux security context
+  -Z, --context=CONTEXT  set SELinux security context of files and directories
+      --help     display this help and exit
+      --version  output version information and exit
+
+The backup suffix is '~', unless set with --suffix or SIMPLE_BACKUP_SUFFIX.
+The version control method may be selected via the --backup option or through
+the VERSION_CONTROL environment variable.  Here are the values:
+
+  none, off       never make backups (even if --backup is given)
+  numbered, t     make numbered backups
+  existing, nil   numbered if numbered backups exist, simple otherwise
+  simple, never   always make simple backups
+
+Report install bugs to bug-coreutils@gnu.org
+GNU coreutils home page: <http://www.gnu.org/software/coreutils/>
+General help using GNU software: <http://www.gnu.org/gethelp/>
+For complete documentation, run: info coreutils 'install invocation'
+vagrant@vagrant-ubuntu-trusty-64:~$ Vagrantfile
+Vagrantfile: command not found
+vagrant@vagrant-ubuntu-trusty-64:~$ vagrant up
+The program 'vagrant' is currently not installed. To run 'vagrant' please ask your administrator to install the package 'vagrant'
+vagrant@vagrant-ubuntu-trusty-64:~$ vagrant init
+The program 'vagrant' is currently not installed. To run 'vagrant' please ask your administrator to install the package 'vagrant'
+vagrant@vagrant-ubuntu-trusty-64:~$ vagrant ssh
+The program 'vagrant' is currently not installed. To run 'vagrant' please ask your administrator to install the package 'vagrant'
+vagrant@vagrant-ubuntu-trusty-64:~$ uname
+Linux
+vagrant@vagrant-ubuntu-trusty-64:~$ README.md
+README.md: command not found
+vagrant@vagrant-ubuntu-trusty-64:~$ Ubuntu
+Ubuntu: command not found
+vagrant@vagrant-ubuntu-trusty-64:~$ uname
+Linux
+vagrant@vagrant-ubuntu-trusty-64:~$ man uname
+vagrant@vagrant-ubuntu-trusty-64:~$ vagrant up
+The program 'vagrant' is currently not installed. To run 'vagrant' please ask your administrator to install the package 'vagrant'
+vagrant@vagrant-ubuntu-trusty-64:~$ uname
+Linux
+vagrant@vagrant-ubuntu-trusty-64:~$ -a
+-a: command not found
+vagrant@vagrant-ubuntu-trusty-64:~$ -al
+No command '-al' found, did you mean:
+ Command 'al' from package 'mono-devel' (main)
+ Command 'cal' from package 'bsdmainutils' (main)
+ Command 'pal' from package 'pal' (universe)
+ Command 'fal' from package 'dnet-progs' (universe)
+-al: command not found
+vagrant@vagrant-ubuntu-trusty-64:~$ -all
+No command '-all' found, did you mean:
+ Command 'wall' from package 'bsdutils' (main)
+-all: command not found
+vagrant@vagrant-ubuntu-trusty-64:~$ -a, --all
+-a,: command not found
+vagrant@vagrant-ubuntu-trusty-64:~$ -s
+-s: command not found
+vagrant@vagrant-ubuntu-trusty-64:~$ uname -s
+Linux
+vagrant@vagrant-ubuntu-trusty-64:~$ uname -a
+Linux vagrant-ubuntu-trusty-64 3.13.0-149-generic #199-Ubuntu SMP Thu May 17 10:12:50 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+vagrant@vagrant-ubuntu-trusty-64:~$ uname -m
+x86_64
+vagrant@vagrant-ubuntu-trusty-64:~$ uname -n
+vagrant-ubuntu-trusty-64
+vagrant@vagrant-ubuntu-trusty-64:~$ uname -r
+3.13.0-149-generic
+vagrant@vagrant-ubuntu-trusty-64:~$ uname -v
+#199-Ubuntu SMP Thu May 17 10:12:50 UTC 2018
+vagrant@vagrant-ubuntu-trusty-64:~$ uname -m
+x86_64
+vagrant@vagrant-ubuntu-trusty-64:~$ uname -p
+x86_64
+vagrant@vagrant-ubuntu-trusty-64:~$ uname -i
+x86_64
+vagrant@vagrant-ubuntu-trusty-64:~$ uname -o
+GNU/Linux
+vagrant@vagrant-ubuntu-trusty-64:~$ uname --help
+Usage: uname [OPTION]...
+Print certain system information.  With no OPTION, same as -s.
+
+  -a, --all                print all information, in the following order,
+                             except omit -p and -i if unknown:
+  -s, --kernel-name        print the kernel name
+  -n, --nodename           print the network node hostname
+  -r, --kernel-release     print the kernel release
+  -v, --kernel-version     print the kernel version
+  -m, --machine            print the machine hardware name
+  -p, --processor          print the processor type or "unknown"
+  -i, --hardware-platform  print the hardware platform or "unknown"
+  -o, --operating-system   print the operating system
+      --help     display this help and exit
+      --version  output version information and exit
+
+Report uname bugs to bug-coreutils@gnu.org
+GNU coreutils home page: <http://www.gnu.org/software/coreutils/>
+General help using GNU software: <http://www.gnu.org/gethelp/>
+For complete documentation, run: info coreutils 'uname invocation'
+vagrant@vagrant-ubuntu-trusty-64:~$ uname --version
+uname (GNU coreutils) 8.21
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by David MacKenzie.
+vagrant@vagrant-ubuntu-trusty-64:~$ arch
+x86_64
+vagrant@vagrant-ubuntu-trusty-64:~$ flea
+No command 'flea' found, did you mean:
+ Command 'flex' from package 'flex-old' (universe)
+ Command 'flex' from package 'flex' (main)
+flea: command not found
+vagrant@vagrant-ubuntu-trusty-64:~$ lsof
+COMMAND    PID  TID       USER   FD      TYPE DEVICE SIZE/OFF   NODE NAME
+init         1            root  cwd   unknown                        /proc/1/cwd (readlink: Permission denied)
+init         1            root  rtd   unknown                        /proc/1/root (readlink: Permission denied)
+init         1            root  txt   unknown                        /proc/1/exe (readlink: Permission denied)
+init         1            root NOFD                                  /proc/1/fd (opendir: Permission denied)
+kthreadd     2            root  cwd   unknown                        /proc/2/cwd (readlink: Permission denied)
+kthreadd     2            root  rtd   unknown                        /proc/2/root (readlink: Permission denied)
+kthreadd     2            root  txt   unknown                        /proc/2/exe (readlink: Permission denied)
+kthreadd     2            root NOFD                                  /proc/2/fd (opendir: Permission denied)
+ksoftirqd    3            root  cwd   unknown                        /proc/3/cwd (readlink: Permission denied)
+ksoftirqd    3            root  rtd   unknown                        /proc/3/root (readlink: Permission denied)
+ksoftirqd    3            root  txt   unknown                        /proc/3/exe (readlink: Permission denied)
+ksoftirqd    3            root NOFD                                  /proc/3/fd (opendir: Permission denied)
+kworker/0    4            root  cwd   unknown                        /proc/4/cwd (readlink: Permission denied)
+kworker/0    4            root  rtd   unknown                        /proc/4/root (readlink: Permission denied)
+kworker/0    4            root  txt   unknown                        /proc/4/exe (readlink: Permission denied)
+kworker/0    4            root NOFD                                  /proc/4/fd (opendir: Permission denied)
+kworker/0    5            root  cwd   unknown                        /proc/5/cwd (readlink: Permission denied)
+kworker/0    5            root  rtd   unknown                        /proc/5/root (readlink: Permission denied)
+kworker/0    5            root  txt   unknown                        /proc/5/exe (readlink: Permission denied)
+kworker/0    5            root NOFD                                  /proc/5/fd (opendir: Permission denied)
+kworker/u    6            root  cwd   unknown                        /proc/6/cwd (readlink: Permission denied)
+kworker/u    6            root  rtd   unknown                        /proc/6/root (readlink: Permission denied)
+kworker/u    6            root  txt   unknown                        /proc/6/exe (readlink: Permission denied)
+kworker/u    6            root NOFD                                  /proc/6/fd (opendir: Permission denied)
+rcu_sched    7            root  cwd   unknown                        /proc/7/cwd (readlink: Permission denied)
+rcu_sched    7            root  rtd   unknown                        /proc/7/root (readlink: Permission denied)
+rcu_sched    7            root  txt   unknown                        /proc/7/exe (readlink: Permission denied)
+rcu_sched    7            root NOFD                                  /proc/7/fd (opendir: Permission denied)
+rcuos/0      8            root  cwd   unknown                        /proc/8/cwd (readlink: Permission denied)
+rcuos/0      8            root  rtd   unknown                        /proc/8/root (readlink: Permission denied)
+rcuos/0      8            root  txt   unknown                        /proc/8/exe (readlink: Permission denied)
+rcuos/0      8            root NOFD                                  /proc/8/fd (opendir: Permission denied)
+rcu_bh       9            root  cwd   unknown                        /proc/9/cwd (readlink: Permission denied)
+rcu_bh       9            root  rtd   unknown                        /proc/9/root (readlink: Permission denied)
+rcu_bh       9            root  txt   unknown                        /proc/9/exe (readlink: Permission denied)
+rcu_bh       9            root NOFD                                  /proc/9/fd (opendir: Permission denied)
+rcuob/0     10            root  cwd   unknown                        /proc/10/cwd (readlink: Permission denied)
+rcuob/0     10            root  rtd   unknown                        /proc/10/root (readlink: Permission denied)
+rcuob/0     10            root  txt   unknown                        /proc/10/exe (readlink: Permission denied)
+rcuob/0     10            root NOFD                                  /proc/10/fd (opendir: Permission denied)
+migration   11            root  cwd   unknown                        /proc/11/cwd (readlink: Permission denied)
+migration   11            root  rtd   unknown                        /proc/11/root (readlink: Permission denied)
+migration   11            root  txt   unknown                        /proc/11/exe (readlink: Permission denied)
+migration   11            root NOFD                                  /proc/11/fd (opendir: Permission denied)
+watchdog/   12            root  cwd   unknown                        /proc/12/cwd (readlink: Permission denied)
+watchdog/   12            root  rtd   unknown                        /proc/12/root (readlink: Permission denied)
+watchdog/   12            root  txt   unknown                        /proc/12/exe (readlink: Permission denied)
+watchdog/   12            root NOFD                                  /proc/12/fd (opendir: Permission denied)
+khelper     13            root  cwd   unknown                        /proc/13/cwd (readlink: Permission denied)
+khelper     13            root  rtd   unknown                        /proc/13/root (readlink: Permission denied)
+khelper     13            root  txt   unknown                        /proc/13/exe (readlink: Permission denied)
+khelper     13            root NOFD                                  /proc/13/fd (opendir: Permission denied)
+kdevtmpfs   14            root  cwd   unknown                        /proc/14/cwd (readlink: Permission denied)
+kdevtmpfs   14            root  rtd   unknown                        /proc/14/root (readlink: Permission denied)
+kdevtmpfs   14            root  txt   unknown                        /proc/14/exe (readlink: Permission denied)
+kdevtmpfs   14            root NOFD                                  /proc/14/fd (opendir: Permission denied)
+netns       15            root  cwd   unknown                        /proc/15/cwd (readlink: Permission denied)
+netns       15            root  rtd   unknown                        /proc/15/root (readlink: Permission denied)
+netns       15            root  txt   unknown                        /proc/15/exe (readlink: Permission denied)
+netns       15            root NOFD                                  /proc/15/fd (opendir: Permission denied)
+writeback   16            root  cwd   unknown                        /proc/16/cwd (readlink: Permission denied)
+writeback   16            root  rtd   unknown                        /proc/16/root (readlink: Permission denied)
+writeback   16            root  txt   unknown                        /proc/16/exe (readlink: Permission denied)
+writeback   16            root NOFD                                  /proc/16/fd (opendir: Permission denied)
+kintegrit   17            root  cwd   unknown                        /proc/17/cwd (readlink: Permission denied)
+kintegrit   17            root  rtd   unknown                        /proc/17/root (readlink: Permission denied)
+kintegrit   17            root  txt   unknown                        /proc/17/exe (readlink: Permission denied)
+kintegrit   17            root NOFD                                  /proc/17/fd (opendir: Permission denied)
+bioset      18            root  cwd   unknown                        /proc/18/cwd (readlink: Permission denied)
+bioset      18            root  rtd   unknown                        /proc/18/root (readlink: Permission denied)
+bioset      18            root  txt   unknown                        /proc/18/exe (readlink: Permission denied)
+bioset      18            root NOFD                                  /proc/18/fd (opendir: Permission denied)
+kworker/u   19            root  cwd   unknown                        /proc/19/cwd (readlink: Permission denied)
+kworker/u   19            root  rtd   unknown                        /proc/19/root (readlink: Permission denied)
+kworker/u   19            root  txt   unknown                        /proc/19/exe (readlink: Permission denied)
+kworker/u   19            root NOFD                                  /proc/19/fd (opendir: Permission denied)
+kblockd     20            root  cwd   unknown                        /proc/20/cwd (readlink: Permission denied)
+kblockd     20            root  rtd   unknown                        /proc/20/root (readlink: Permission denied)
+kblockd     20            root  txt   unknown                        /proc/20/exe (readlink: Permission denied)
+kblockd     20            root NOFD                                  /proc/20/fd (opendir: Permission denied)
+ata_sff     21            root  cwd   unknown                        /proc/21/cwd (readlink: Permission denied)
+ata_sff     21            root  rtd   unknown                        /proc/21/root (readlink: Permission denied)
+ata_sff     21            root  txt   unknown                        /proc/21/exe (readlink: Permission denied)
+ata_sff     21            root NOFD                                  /proc/21/fd (opendir: Permission denied)
+khubd       22            root  cwd   unknown                        /proc/22/cwd (readlink: Permission denied)
+khubd       22            root  rtd   unknown                        /proc/22/root (readlink: Permission denied)
+khubd       22            root  txt   unknown                        /proc/22/exe (readlink: Permission denied)
+khubd       22            root NOFD                                  /proc/22/fd (opendir: Permission denied)
+md          23            root  cwd   unknown                        /proc/23/cwd (readlink: Permission denied)
+md          23            root  rtd   unknown                        /proc/23/root (readlink: Permission denied)
+md          23            root  txt   unknown                        /proc/23/exe (readlink: Permission denied)
+md          23            root NOFD                                  /proc/23/fd (opendir: Permission denied)
+devfreq_w   24            root  cwd   unknown                        /proc/24/cwd (readlink: Permission denied)
+devfreq_w   24            root  rtd   unknown                        /proc/24/root (readlink: Permission denied)
+devfreq_w   24            root  txt   unknown                        /proc/24/exe (readlink: Permission denied)
+devfreq_w   24            root NOFD                                  /proc/24/fd (opendir: Permission denied)
+kworker/0   25            root  cwd   unknown                        /proc/25/cwd (readlink: Permission denied)
+kworker/0   25            root  rtd   unknown                        /proc/25/root (readlink: Permission denied)
+kworker/0   25            root  txt   unknown                        /proc/25/exe (readlink: Permission denied)
+kworker/0   25            root NOFD                                  /proc/25/fd (opendir: Permission denied)
+khungtask   27            root  cwd   unknown                        /proc/27/cwd (readlink: Permission denied)
+khungtask   27            root  rtd   unknown                        /proc/27/root (readlink: Permission denied)
+khungtask   27            root  txt   unknown                        /proc/27/exe (readlink: Permission denied)
+khungtask   27            root NOFD                                  /proc/27/fd (opendir: Permission denied)
+kswapd0     28            root  cwd   unknown                        /proc/28/cwd (readlink: Permission denied)
+kswapd0     28            root  rtd   unknown                        /proc/28/root (readlink: Permission denied)
+kswapd0     28            root  txt   unknown                        /proc/28/exe (readlink: Permission denied)
+kswapd0     28            root NOFD                                  /proc/28/fd (opendir: Permission denied)
+vmstat      29            root  cwd   unknown                        /proc/29/cwd (readlink: Permission denied)
+vmstat      29            root  rtd   unknown                        /proc/29/root (readlink: Permission denied)
+vmstat      29            root  txt   unknown                        /proc/29/exe (readlink: Permission denied)
+vmstat      29            root NOFD                                  /proc/29/fd (opendir: Permission denied)
+ksmd        30            root  cwd   unknown                        /proc/30/cwd (readlink: Permission denied)
+ksmd        30            root  rtd   unknown                        /proc/30/root (readlink: Permission denied)
+ksmd        30            root  txt   unknown                        /proc/30/exe (readlink: Permission denied)
+ksmd        30            root NOFD                                  /proc/30/fd (opendir: Permission denied)
+fsnotify_   31            root  cwd   unknown                        /proc/31/cwd (readlink: Permission denied)
+fsnotify_   31            root  rtd   unknown                        /proc/31/root (readlink: Permission denied)
+fsnotify_   31            root  txt   unknown                        /proc/31/exe (readlink: Permission denied)
+fsnotify_   31            root NOFD                                  /proc/31/fd (opendir: Permission denied)
+ecryptfs-   32            root  cwd   unknown                        /proc/32/cwd (readlink: Permission denied)
+ecryptfs-   32            root  rtd   unknown                        /proc/32/root (readlink: Permission denied)
+ecryptfs-   32            root  txt   unknown                        /proc/32/exe (readlink: Permission denied)
+ecryptfs-   32            root NOFD                                  /proc/32/fd (opendir: Permission denied)
+crypto      33            root  cwd   unknown                        /proc/33/cwd (readlink: Permission denied)
+crypto      33            root  rtd   unknown                        /proc/33/root (readlink: Permission denied)
+crypto      33            root  txt   unknown                        /proc/33/exe (readlink: Permission denied)
+crypto      33            root NOFD                                  /proc/33/fd (opendir: Permission denied)
+kthrotld    45            root  cwd   unknown                        /proc/45/cwd (readlink: Permission denied)
+kthrotld    45            root  rtd   unknown                        /proc/45/root (readlink: Permission denied)
+kthrotld    45            root  txt   unknown                        /proc/45/exe (readlink: Permission denied)
+kthrotld    45            root NOFD                                  /proc/45/fd (opendir: Permission denied)
+deferwq     65            root  cwd   unknown                        /proc/65/cwd (readlink: Permission denied)
+deferwq     65            root  rtd   unknown                        /proc/65/root (readlink: Permission denied)
+deferwq     65            root  txt   unknown                        /proc/65/exe (readlink: Permission denied)
+deferwq     65            root NOFD                                  /proc/65/fd (opendir: Permission denied)
+charger_m   66            root  cwd   unknown                        /proc/66/cwd (readlink: Permission denied)
+charger_m   66            root  rtd   unknown                        /proc/66/root (readlink: Permission denied)
+charger_m   66            root  txt   unknown                        /proc/66/exe (readlink: Permission denied)
+charger_m   66            root NOFD                                  /proc/66/fd (opendir: Permission denied)
+scsi_eh_0  108            root  cwd   unknown                        /proc/108/cwd (readlink: Permission denied)
+scsi_eh_0  108            root  rtd   unknown                        /proc/108/root (readlink: Permission denied)
+scsi_eh_0  108            root  txt   unknown                        /proc/108/exe (readlink: Permission denied)
+scsi_eh_0  108            root NOFD                                  /proc/108/fd (opendir: Permission denied)
+kpsmoused  109            root  cwd   unknown                        /proc/109/cwd (readlink: Permission denied)
+kpsmoused  109            root  rtd   unknown                        /proc/109/root (readlink: Permission denied)
+kpsmoused  109            root  txt   unknown                        /proc/109/exe (readlink: Permission denied)
+kpsmoused  109            root NOFD                                  /proc/109/fd (opendir: Permission denied)
+kworker/u  127            root  cwd   unknown                        /proc/127/cwd (readlink: Permission denied)
+kworker/u  127            root  rtd   unknown                        /proc/127/root (readlink: Permission denied)
+kworker/u  127            root  txt   unknown                        /proc/127/exe (readlink: Permission denied)
+kworker/u  127            root NOFD                                  /proc/127/fd (opendir: Permission denied)
+jbd2/sda1  173            root  cwd   unknown                        /proc/173/cwd (readlink: Permission denied)
+jbd2/sda1  173            root  rtd   unknown                        /proc/173/root (readlink: Permission denied)
+jbd2/sda1  173            root  txt   unknown                        /proc/173/exe (readlink: Permission denied)
+jbd2/sda1  173            root NOFD                                  /proc/173/fd (opendir: Permission denied)
+ext4-rsv-  174            root  cwd   unknown                        /proc/174/cwd (readlink: Permission denied)
+ext4-rsv-  174            root  rtd   unknown                        /proc/174/root (readlink: Permission denied)
+ext4-rsv-  174            root  txt   unknown                        /proc/174/exe (readlink: Permission denied)
+ext4-rsv-  174            root NOFD                                  /proc/174/fd (opendir: Permission denied)
+upstart-u  376            root  cwd   unknown                        /proc/376/cwd (readlink: Permission denied)
+upstart-u  376            root  rtd   unknown                        /proc/376/root (readlink: Permission denied)
+upstart-u  376            root  txt   unknown                        /proc/376/exe (readlink: Permission denied)
+upstart-u  376            root NOFD                                  /proc/376/fd (opendir: Permission denied)
+systemd-u  379            root  cwd   unknown                        /proc/379/cwd (readlink: Permission denied)
+systemd-u  379            root  rtd   unknown                        /proc/379/root (readlink: Permission denied)
+systemd-u  379            root  txt   unknown                        /proc/379/exe (readlink: Permission denied)
+systemd-u  379            root NOFD                                  /proc/379/fd (opendir: Permission denied)
+iprt       410            root  cwd   unknown                        /proc/410/cwd (readlink: Permission denied)
+iprt       410            root  rtd   unknown                        /proc/410/root (readlink: Permission denied)
+iprt       410            root  txt   unknown                        /proc/410/exe (readlink: Permission denied)
+iprt       410            root NOFD                                  /proc/410/fd (opendir: Permission denied)
+kworker/u  415            root  cwd   unknown                        /proc/415/cwd (readlink: Permission denied)
+kworker/u  415            root  rtd   unknown                        /proc/415/root (readlink: Permission denied)
+kworker/u  415            root  txt   unknown                        /proc/415/exe (readlink: Permission denied)
+kworker/u  415            root NOFD                                  /proc/415/fd (opendir: Permission denied)
+rpcbind    523            root  cwd   unknown                        /proc/523/cwd (readlink: Permission denied)
+rpcbind    523            root  rtd   unknown                        /proc/523/root (readlink: Permission denied)
+rpcbind    523            root  txt   unknown                        /proc/523/exe (readlink: Permission denied)
+rpcbind    523            root NOFD                                  /proc/523/fd (opendir: Permission denied)
+dhclient   569            root  cwd   unknown                        /proc/569/cwd (readlink: Permission denied)
+dhclient   569            root  rtd   unknown                        /proc/569/root (readlink: Permission denied)
+dhclient   569            root  txt   unknown                        /proc/569/exe (readlink: Permission denied)
+dhclient   569            root NOFD                                  /proc/569/fd (opendir: Permission denied)
+rpc.statd  621           statd  cwd   unknown                        /proc/621/cwd (readlink: Permission denied)
+rpc.statd  621           statd  rtd   unknown                        /proc/621/root (readlink: Permission denied)
+rpc.statd  621           statd  txt   unknown                        /proc/621/exe (readlink: Permission denied)
+rpc.statd  621           statd NOFD                                  /proc/621/fd (opendir: Permission denied)
+upstart-s  630            root  cwd   unknown                        /proc/630/cwd (readlink: Permission denied)
+upstart-s  630            root  rtd   unknown                        /proc/630/root (readlink: Permission denied)
+upstart-s  630            root  txt   unknown                        /proc/630/exe (readlink: Permission denied)
+upstart-s  630            root NOFD                                  /proc/630/fd (opendir: Permission denied)
+kauditd    827            root  cwd   unknown                        /proc/827/cwd (readlink: Permission denied)
+kauditd    827            root  rtd   unknown                        /proc/827/root (readlink: Permission denied)
+kauditd    827            root  txt   unknown                        /proc/827/exe (readlink: Permission denied)
+kauditd    827            root NOFD                                  /proc/827/fd (opendir: Permission denied)
+rpciod     865            root  cwd   unknown                        /proc/865/cwd (readlink: Permission denied)
+rpciod     865            root  rtd   unknown                        /proc/865/root (readlink: Permission denied)
+rpciod     865            root  txt   unknown                        /proc/865/exe (readlink: Permission denied)
+rpciod     865            root NOFD                                  /proc/865/fd (opendir: Permission denied)
+nfsiod     872            root  cwd   unknown                        /proc/872/cwd (readlink: Permission denied)
+nfsiod     872            root  rtd   unknown                        /proc/872/root (readlink: Permission denied)
+nfsiod     872            root  txt   unknown                        /proc/872/exe (readlink: Permission denied)
+nfsiod     872            root NOFD                                  /proc/872/fd (opendir: Permission denied)
+dbus-daem  923      messagebus  cwd   unknown                        /proc/923/cwd (readlink: Permission denied)
+dbus-daem  923      messagebus  rtd   unknown                        /proc/923/root (readlink: Permission denied)
+dbus-daem  923      messagebus  txt   unknown                        /proc/923/exe (readlink: Permission denied)
+dbus-daem  923      messagebus NOFD                                  /proc/923/fd (opendir: Permission denied)
+rpc.idmap  928            root  cwd   unknown                        /proc/928/cwd (readlink: Permission denied)
+rpc.idmap  928            root  rtd   unknown                        /proc/928/root (readlink: Permission denied)
+rpc.idmap  928            root  txt   unknown                        /proc/928/exe (readlink: Permission denied)
+rpc.idmap  928            root NOFD                                  /proc/928/fd (opendir: Permission denied)
+systemd-l  942            root  cwd   unknown                        /proc/942/cwd (readlink: Permission denied)
+systemd-l  942            root  rtd   unknown                        /proc/942/root (readlink: Permission denied)
+systemd-l  942            root  txt   unknown                        /proc/942/exe (readlink: Permission denied)
+systemd-l  942            root NOFD                                  /proc/942/fd (opendir: Permission denied)
+upstart-f  961            root  cwd   unknown                        /proc/961/cwd (readlink: Permission denied)
+upstart-f  961            root  rtd   unknown                        /proc/961/root (readlink: Permission denied)
+upstart-f  961            root  txt   unknown                        /proc/961/exe (readlink: Permission denied)
+upstart-f  961            root NOFD                                  /proc/961/fd (opendir: Permission denied)
+rsyslogd   977          syslog  cwd   unknown                        /proc/977/cwd (readlink: Permission denied)
+rsyslogd   977          syslog  rtd   unknown                        /proc/977/root (readlink: Permission denied)
+rsyslogd   977          syslog  txt   unknown                        /proc/977/exe (readlink: Permission denied)
+rsyslogd   977          syslog NOFD                                  /proc/977/fd (opendir: Permission denied)
+in:imuxso  977  980     syslog  cwd   unknown                        /proc/977/task/980/cwd (readlink: Permission denied)
+in:imuxso  977  980     syslog  rtd   unknown                        /proc/977/task/980/root (readlink: Permission denied)
+in:imuxso  977  980     syslog  txt   unknown                        /proc/977/task/980/exe (readlink: Permission denied)
+in:imuxso  977  980     syslog NOFD                                  /proc/977/task/980/fd (opendir: Permission denied)
+in:imklog  977  981     syslog  cwd   unknown                        /proc/977/task/981/cwd (readlink: Permission denied)
+in:imklog  977  981     syslog  rtd   unknown                        /proc/977/task/981/root (readlink: Permission denied)
+in:imklog  977  981     syslog  txt   unknown                        /proc/977/task/981/exe (readlink: Permission denied)
+in:imklog  977  981     syslog NOFD                                  /proc/977/task/981/fd (opendir: Permission denied)
+rs:main    977  982     syslog  cwd   unknown                        /proc/977/task/982/cwd (readlink: Permission denied)
+rs:main    977  982     syslog  rtd   unknown                        /proc/977/task/982/root (readlink: Permission denied)
+rs:main    977  982     syslog  txt   unknown                        /proc/977/task/982/exe (readlink: Permission denied)
+rs:main    977  982     syslog NOFD                                  /proc/977/task/982/fd (opendir: Permission denied)
+getty     1071            root  cwd   unknown                        /proc/1071/cwd (readlink: Permission denied)
+getty     1071            root  rtd   unknown                        /proc/1071/root (readlink: Permission denied)
+getty     1071            root  txt   unknown                        /proc/1071/exe (readlink: Permission denied)
+getty     1071            root NOFD                                  /proc/1071/fd (opendir: Permission denied)
+getty     1074            root  cwd   unknown                        /proc/1074/cwd (readlink: Permission denied)
+getty     1074            root  rtd   unknown                        /proc/1074/root (readlink: Permission denied)
+getty     1074            root  txt   unknown                        /proc/1074/exe (readlink: Permission denied)
+getty     1074            root NOFD                                  /proc/1074/fd (opendir: Permission denied)
+getty     1078            root  cwd   unknown                        /proc/1078/cwd (readlink: Permission denied)
+getty     1078            root  rtd   unknown                        /proc/1078/root (readlink: Permission denied)
+getty     1078            root  txt   unknown                        /proc/1078/exe (readlink: Permission denied)
+getty     1078            root NOFD                                  /proc/1078/fd (opendir: Permission denied)
+getty     1079            root  cwd   unknown                        /proc/1079/cwd (readlink: Permission denied)
+getty     1079            root  rtd   unknown                        /proc/1079/root (readlink: Permission denied)
+getty     1079            root  txt   unknown                        /proc/1079/exe (readlink: Permission denied)
+getty     1079            root NOFD                                  /proc/1079/fd (opendir: Permission denied)
+getty     1081            root  cwd   unknown                        /proc/1081/cwd (readlink: Permission denied)
+getty     1081            root  rtd   unknown                        /proc/1081/root (readlink: Permission denied)
+getty     1081            root  txt   unknown                        /proc/1081/exe (readlink: Permission denied)
+getty     1081            root NOFD                                  /proc/1081/fd (opendir: Permission denied)
+acpid     1118            root  cwd   unknown                        /proc/1118/cwd (readlink: Permission denied)
+acpid     1118            root  rtd   unknown                        /proc/1118/root (readlink: Permission denied)
+acpid     1118            root  txt   unknown                        /proc/1118/exe (readlink: Permission denied)
+acpid     1118            root NOFD                                  /proc/1118/fd (opendir: Permission denied)
+cron      1119            root  cwd   unknown                        /proc/1119/cwd (readlink: Permission denied)
+cron      1119            root  rtd   unknown                        /proc/1119/root (readlink: Permission denied)
+cron      1119            root  txt   unknown                        /proc/1119/exe (readlink: Permission denied)
+cron      1119            root NOFD                                  /proc/1119/fd (opendir: Permission denied)
+atd       1120          daemon  cwd   unknown                        /proc/1120/cwd (readlink: Permission denied)
+atd       1120          daemon  rtd   unknown                        /proc/1120/root (readlink: Permission denied)
+atd       1120          daemon  txt   unknown                        /proc/1120/exe (readlink: Permission denied)
+atd       1120          daemon NOFD                                  /proc/1120/fd (opendir: Permission denied)
+VBoxServi 1169            root  cwd   unknown                        /proc/1169/cwd (readlink: Permission denied)
+VBoxServi 1169            root  rtd   unknown                        /proc/1169/root (readlink: Permission denied)
+VBoxServi 1169            root  txt   unknown                        /proc/1169/exe (readlink: Permission denied)
+VBoxServi 1169            root NOFD                                  /proc/1169/fd (opendir: Permission denied)
+control   1169 1170       root  cwd   unknown                        /proc/1169/task/1170/cwd (readlink: Permission denied)
+control   1169 1170       root  rtd   unknown                        /proc/1169/task/1170/root (readlink: Permission denied)
+control   1169 1170       root  txt   unknown                        /proc/1169/task/1170/exe (readlink: Permission denied)
+control   1169 1170       root NOFD                                  /proc/1169/task/1170/fd (opendir: Permission denied)
+timesync  1169 1171       root  cwd   unknown                        /proc/1169/task/1171/cwd (readlink: Permission denied)
+timesync  1169 1171       root  rtd   unknown                        /proc/1169/task/1171/root (readlink: Permission denied)
+timesync  1169 1171       root  txt   unknown                        /proc/1169/task/1171/exe (readlink: Permission denied)
+timesync  1169 1171       root NOFD                                  /proc/1169/task/1171/fd (opendir: Permission denied)
+vminfo    1169 1172       root  cwd   unknown                        /proc/1169/task/1172/cwd (readlink: Permission denied)
+vminfo    1169 1172       root  rtd   unknown                        /proc/1169/task/1172/root (readlink: Permission denied)
+vminfo    1169 1172       root  txt   unknown                        /proc/1169/task/1172/exe (readlink: Permission denied)
+vminfo    1169 1172       root NOFD                                  /proc/1169/task/1172/fd (opendir: Permission denied)
+cpuhotplu 1169 1173       root  cwd   unknown                        /proc/1169/task/1173/cwd (readlink: Permission denied)
+cpuhotplu 1169 1173       root  rtd   unknown                        /proc/1169/task/1173/root (readlink: Permission denied)
+cpuhotplu 1169 1173       root  txt   unknown                        /proc/1169/task/1173/exe (readlink: Permission denied)
+cpuhotplu 1169 1173       root NOFD                                  /proc/1169/task/1173/fd (opendir: Permission denied)
+memballoo 1169 1175       root  cwd   unknown                        /proc/1169/task/1175/cwd (readlink: Permission denied)
+memballoo 1169 1175       root  rtd   unknown                        /proc/1169/task/1175/root (readlink: Permission denied)
+memballoo 1169 1175       root  txt   unknown                        /proc/1169/task/1175/exe (readlink: Permission denied)
+memballoo 1169 1175       root NOFD                                  /proc/1169/task/1175/fd (opendir: Permission denied)
+vmstats   1169 1176       root  cwd   unknown                        /proc/1169/task/1176/cwd (readlink: Permission denied)
+vmstats   1169 1176       root  rtd   unknown                        /proc/1169/task/1176/root (readlink: Permission denied)
+vmstats   1169 1176       root  txt   unknown                        /proc/1169/task/1176/exe (readlink: Permission denied)
+vmstats   1169 1176       root NOFD                                  /proc/1169/task/1176/fd (opendir: Permission denied)
+automount 1169 1178       root  cwd   unknown                        /proc/1169/task/1178/cwd (readlink: Permission denied)
+automount 1169 1178       root  rtd   unknown                        /proc/1169/task/1178/root (readlink: Permission denied)
+automount 1169 1178       root  txt   unknown                        /proc/1169/task/1178/exe (readlink: Permission denied)
+automount 1169 1178       root NOFD                                  /proc/1169/task/1178/fd (opendir: Permission denied)
+sshd      1253            root  cwd   unknown                        /proc/1253/cwd (readlink: Permission denied)
+sshd      1253            root  rtd   unknown                        /proc/1253/root (readlink: Permission denied)
+sshd      1253            root  txt   unknown                        /proc/1253/exe (readlink: Permission denied)
+sshd      1253            root NOFD                                  /proc/1253/fd (opendir: Permission denied)
+puppet    1299            root  cwd   unknown                        /proc/1299/cwd (readlink: Permission denied)
+puppet    1299            root  rtd   unknown                        /proc/1299/root (readlink: Permission denied)
+puppet    1299            root  txt   unknown                        /proc/1299/exe (readlink: Permission denied)
+puppet    1299            root NOFD                                  /proc/1299/fd (opendir: Permission denied)
+puppet    1299 1302       root  cwd   unknown                        /proc/1299/task/1302/cwd (readlink: Permission denied)
+puppet    1299 1302       root  rtd   unknown                        /proc/1299/task/1302/root (readlink: Permission denied)
+puppet    1299 1302       root  txt   unknown                        /proc/1299/task/1302/exe (readlink: Permission denied)
+puppet    1299 1302       root NOFD                                  /proc/1299/task/1302/fd (opendir: Permission denied)
+ruby      1365            root  cwd   unknown                        /proc/1365/cwd (readlink: Permission denied)
+ruby      1365            root  rtd   unknown                        /proc/1365/root (readlink: Permission denied)
+ruby      1365            root  txt   unknown                        /proc/1365/exe (readlink: Permission denied)
+ruby      1365            root NOFD                                  /proc/1365/fd (opendir: Permission denied)
+ruby      1365 1786       root  cwd   unknown                        /proc/1365/task/1786/cwd (readlink: Permission denied)
+ruby      1365 1786       root  rtd   unknown                        /proc/1365/task/1786/root (readlink: Permission denied)
+ruby      1365 1786       root  txt   unknown                        /proc/1365/task/1786/exe (readlink: Permission denied)
+ruby      1365 1786       root NOFD                                  /proc/1365/task/1786/fd (opendir: Permission denied)
+getty     1392            root  cwd   unknown                        /proc/1392/cwd (readlink: Permission denied)
+getty     1392            root  rtd   unknown                        /proc/1392/root (readlink: Permission denied)
+getty     1392            root  txt   unknown                        /proc/1392/exe (readlink: Permission denied)
+getty     1392            root NOFD                                  /proc/1392/fd (opendir: Permission denied)
+sshd      1901            root  cwd   unknown                        /proc/1901/cwd (readlink: Permission denied)
+sshd      1901            root  rtd   unknown                        /proc/1901/root (readlink: Permission denied)
+sshd      1901            root  txt   unknown                        /proc/1901/exe (readlink: Permission denied)
+sshd      1901            root NOFD                                  /proc/1901/fd (opendir: Permission denied)
+sshd      1971         vagrant  cwd   unknown                        /proc/1971/cwd (readlink: Permission denied)
+sshd      1971         vagrant  rtd   unknown                        /proc/1971/root (readlink: Permission denied)
+sshd      1971         vagrant  txt   unknown                        /proc/1971/exe (readlink: Permission denied)
+sshd      1971         vagrant NOFD                                  /proc/1971/fd (opendir: Permission denied)
+bash      1972         vagrant  cwd       DIR    8,1     4096 131077 /home/vagrant
+bash      1972         vagrant  rtd       DIR    8,1     4096      2 /
+bash      1972         vagrant  txt       REG    8,1  1021112     53 /bin/bash
+bash      1972         vagrant  mem       REG    8,1    43616   3087 /lib/x86_64-linux-gnu/libnss_files-2.19.so
+bash      1972         vagrant  mem       REG    8,1    47760   3002 /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+bash      1972         vagrant  mem       REG    8,1    97296   3185 /lib/x86_64-linux-gnu/libnsl-2.19.so
+bash      1972         vagrant  mem       REG    8,1    39824   3003 /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+bash      1972         vagrant  mem       REG    8,1  1857312   3181 /lib/x86_64-linux-gnu/libc-2.19.so
+bash      1972         vagrant  mem       REG    8,1    14664   3084 /lib/x86_64-linux-gnu/libdl-2.19.so
+bash      1972         vagrant  mem       REG    8,1   167096   3004 /lib/x86_64-linux-gnu/libtinfo.so.5.9
+bash      1972         vagrant  mem       REG    8,1   149120   3024 /lib/x86_64-linux-gnu/ld-2.19.so
+bash      1972         vagrant  mem       REG    8,1  1607664  11114 /usr/lib/locale/locale-archive
+bash      1972         vagrant  mem       REG    8,1    26258  10689 /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+bash      1972         vagrant    0u      CHR  136,0      0t0      3 /dev/pts/0
+bash      1972         vagrant    1u      CHR  136,0      0t0      3 /dev/pts/0
+bash      1972         vagrant    2u      CHR  136,0      0t0      3 /dev/pts/0
+bash      1972         vagrant  255u      CHR  136,0      0t0      3 /dev/pts/0
+sshd      2022            root  cwd   unknown                        /proc/2022/cwd (readlink: Permission denied)
+sshd      2022            root  rtd   unknown                        /proc/2022/root (readlink: Permission denied)
+sshd      2022            root  txt   unknown                        /proc/2022/exe (readlink: Permission denied)
+sshd      2022            root NOFD                                  /proc/2022/fd (opendir: Permission denied)
+lsof      2174         vagrant  cwd       DIR    8,1     4096 131077 /home/vagrant
+lsof      2174         vagrant  rtd       DIR    8,1     4096      2 /
+lsof      2174         vagrant  txt       REG    8,1   163224   3952 /usr/bin/lsof
+lsof      2174         vagrant  mem       REG    8,1  1857312   3181 /lib/x86_64-linux-gnu/libc-2.19.so
+lsof      2174         vagrant  mem       REG    8,1   149120   3024 /lib/x86_64-linux-gnu/ld-2.19.so
+lsof      2174         vagrant  mem       REG    8,1  1607664  11114 /usr/lib/locale/locale-archive
+lsof      2174         vagrant    0u      CHR  136,0      0t0      3 /dev/pts/0
+lsof      2174         vagrant    1u      CHR  136,0      0t0      3 /dev/pts/0
+lsof      2174         vagrant    2u      CHR  136,0      0t0      3 /dev/pts/0
+lsof      2174         vagrant    3r      DIR    0,3        0      1 /proc
+lsof      2174         vagrant    4r      DIR    0,3        0  17353 /proc/2174/fd
+lsof      2174         vagrant    5w     FIFO    0,8      0t0  17358 pipe
+lsof      2174         vagrant    6r     FIFO    0,8      0t0  17359 pipe
+lsof      2175         vagrant  cwd       DIR    8,1     4096 131077 /home/vagrant
+lsof      2175         vagrant  rtd       DIR    8,1     4096      2 /
+lsof      2175         vagrant  txt       REG    8,1   163224   3952 /usr/bin/lsof
+lsof      2175         vagrant  mem       REG    8,1  1857312   3181 /lib/x86_64-linux-gnu/libc-2.19.so
+lsof      2175         vagrant  mem       REG    8,1   149120   3024 /lib/x86_64-linux-gnu/ld-2.19.so
+lsof      2175         vagrant  mem       REG    8,1  1607664  11114 /usr/lib/locale/locale-archive
+lsof      2175         vagrant    4r     FIFO    0,8      0t0  17358 pipe
+lsof      2175         vagrant    7w     FIFO    0,8      0t0  17359 pipe
+vagrant@vagrant-ubuntu-trusty-64:~$ uname
+Linux
+vagrant@vagrant-ubuntu-trusty-64:~$ 
